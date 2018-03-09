@@ -7,33 +7,39 @@ var SATC = {
   SATCdata: [],
   yourCloset: [],
   sheetUrl: 'https://docs.google.com/spreadsheets/d/18GUQnDV9AX32KPacE9q8xEZtrOqJ6qjTV1C8eQfAdoE/edit?usp=sharing',
-  
-  init: function() {
-    this.seasonEl = document.getElementById('season');
-    this.episodeEl = document.getElementById('episode');
-    this.titleEl = document.getElementById('title');
-    this.carrieEl = document.getElementById('carrieUpdate');
-    this.mirandaEl = document.getElementById('mirandaUpdate');
-    this.charlotteEl = document.getElementById('charlotteUpdate');
-    this.samanthaEl = document.getElementById('samanthaUpdate');
+  elements: [
+              'season',
+              'episode',
+              'title',
+              'year',
+              'carrieUpdate',
+              'mirandaUpdate',
+              'charlotteUpdate',
+              'samanthaUpdate'
+            ],
 
+  init: function() {
+    let scope = this;
+
+    this.elements.forEach( function( el ) { 
+      scope[el] = document.getElementById(el);
+    } );
 
     Tabletop.init( { key: this.sheetUrl, callback: this.showInfo.bind( this ) } );
   },
 
   showInfo: function( data, tabletop ) {
+    let scope = this;
     this.SATCdata = tabletop.sheets('Base List').all();
     this.yourCloset = tabletop.sheets('Your Closet').all();
     let epSuggestion = this.getRandomEp( this.SATCdata );
 
     console.log(epSuggestion);
-    this.seasonEl.innerText = epSuggestion.season;
-    this.episodeEl.innerText = epSuggestion.episode;
-    this.titleEl.innerText = epSuggestion.title;
-    this.carrieEl.innerText = epSuggestion.carrieUpdate;
-    this.mirandaEl.innerText = epSuggestion.mirandaUpdate;
-    this.charlotteEl.innerText = epSuggestion.charlotteUpdate;
-    this.samanthaEl.innerText = epSuggestion.samanthaUpdate;
+
+    this.elements.forEach( function( el ) { 
+      scope[el].innerText = epSuggestion[el];
+    } );
+
   },
 
   getRandomEp( data ) {
