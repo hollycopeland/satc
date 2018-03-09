@@ -21,7 +21,6 @@ var SATC = {
     this.yourCloset = tabletop.sheets('Your Closet').all();
     let epSuggestion = this.getRandomEp( this.SATCdata );
 
-    console.log(epSuggestion);
     this.seasonEl.innerText = epSuggestion.season;
     this.episodeEl.innerText = epSuggestion.episode;
     this.titleEl.innerText = epSuggestion.title;
