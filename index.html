@@ -42,13 +42,12 @@
 
     <div class="flex-container">
 
-	    <div class="pink-mod">
-
-		    <div class="episode-container">
-		        <div class="details">Season 6 – Episode 5</div>
-		        <div class="ep-title">Lights, Camera, Relationship!</div>
-		        <div class="ep-year">2003</div>
-		    </div>
+	 <div class="pink-mod">                                               
+    <div class="episode-container">
+        <div class="details">Season <span id="season"></span> – Episode <span id="episode"></span></div>
+        <div id="title" class="ep-title"></div>
+        <div id="year" class="ep-year"></div>
+    </div>
 
 		    <div class="action-container">
 		        <a class="watch-btn" href="https://www.google.com">Watch Now</a>
@@ -61,24 +60,26 @@
 			    <table style="width:100%">
 			  	<tr>
 			    	<td><img src="img/car.png" alt="Mountain View"></td>
-			    	<td>Carrie does something.</td> 
+			    	<td id="carrieUpdate"></td> 
 			  	</tr>
 			 	<tr>
 			    	<td><img src="img/char.png" alt="Mountain View"></td>
-			    	<td>Charlotte begins to imagine her future without a man in a different way.</td> 
+			    	<td id="charlotteUpdate"></td> 
 			  	</tr>
 			    <tr>
 			    	<td><img src="img/mir.png" alt="Mountain View"></td>
-			    	<td>Miranda has an unplanned overnighter with Steve.</td> 
+			    	<td id="mirandaUpdate"></td> 
 			  	</tr>
 			    <tr>
 			    	<td><img src="img/sam.png" alt="Mountain View"></td>
-			    	<td>Samantha uses her PR magic on struggling actor Jerry.</td> 
+			    	<td id="samanthaUpdate"></td> 
 			  	</tr>
 				</table>
 		    </div>
 		</div>
 	</div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script src="app.js"></script>
  </body>
 </html>
 
